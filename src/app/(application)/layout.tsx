@@ -1,5 +1,5 @@
 import { LayoutProps } from "@/types/props";
-import Sidebar from "@/app/components/[sidebar]/Sidebar";
+import Sidebar from "@/app/(application)/components/[sidebar]/Sidebar";
 
 function ApplicationLayout({ children }: LayoutProps) {
   return (

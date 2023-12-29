@@ -30,7 +30,7 @@ const ClientComponent: React.FC = () => {
             }`}
           />
           <Link
-            href="/"
+            href="/overview"
             className={`${pathname === "/" ? "text-white" : "text-primary"}`}
           >
             Overview
