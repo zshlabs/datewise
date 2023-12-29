@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 
-export default function MonthNavigator() {
+function MonthNavigator() {
   const [month, setMonth] = useState(new Date().getMonth());
   const [year, setYear] = useState(new Date().getFullYear());
 
@@ -53,6 +53,52 @@ export default function MonthNavigator() {
         <Button onClick={incrementMonth} className={buttonStyle}>
           {">"}
         </Button>
+      </div>
+    </>
+  );
+}
+
+const days = [
+  "Sunday",
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday",
+];
+const hours = Array.from({ length: 24 }, (_, i) => i);
+
+const CalendarGrid = () => {
+  return (
+    <div className="grid grid-cols-8 gap-4 p-4">
+      <div className="col-span-1">
+        {hours.map((hour) => (
+          <div
+            key={hour}
+            className="h-12 border-b border-gray-200 flex items-center justify-center"
+          >
+            {hour}:00
+          </div>
+        ))}
+      </div>
+      {days.map((day) => (
+        <div key={day} className="col-span-1">
+          {hours.map((hour) => (
+            <div key={hour} className="h-12 border-b border-gray-200"></div>
+          ))}
+        </div>
+      ))}
+    </div>
+  );
+};
+
+export default function Calendar() {
+  return (
+    <>
+      <div>
+        <MonthNavigator />
+        <CalendarGrid />
       </div>
     </>
   );
