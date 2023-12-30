@@ -1,10 +1,9 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { clinton } from "@/app/ui/fonts";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/react";
 import { LayoutProps } from "@/types/props";
-
-const inter = Inter({ subsets: ["latin"] });
+import { GeistSans } from "geist/font/sans";
 
 export const metadata: Metadata = {
   title: "Datewise",
@@ -14,7 +13,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: LayoutProps) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={GeistSans.className}>
         {children}
 
         <Analytics />
