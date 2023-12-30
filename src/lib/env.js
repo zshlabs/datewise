@@ -10,10 +10,10 @@ export const env = createEnv({
 
   server: {
     DATABASE_URL: z.string(),
-    NODE_ENV: z.enum(['development', 'production', 'test']),
+    NODE_ENV: z.enum(['development', 'production']),
   },
   client: {
-    NODE_ENV: z.enum(['development', 'production', 'test']),
+    NODE_ENV: z.enum(['development', 'production']),
   },
 
   runtimeEnv: {
