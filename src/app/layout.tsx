@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { clinton } from "@/app/ui/fonts";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/react";
 import { LayoutProps } from "@/types/props";
@@ -15,7 +14,6 @@ export default function RootLayout({ children }: LayoutProps) {
     <html lang="en">
       <body className={GeistSans.className}>
         {children}
-
         <Analytics />
       </body>
     </html>
