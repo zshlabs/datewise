@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import Link from "next/link";
+import clsx from "clsx";
 import {
   IconCalendarMonth,
   IconTableColumn,
@@ -20,56 +21,64 @@ const ClientComponent: React.FC = () => {
       <ul className="space-y-4">
         <hr className="" />
         <li
-          className={`p-2 rounded-md ${
-            pathname === "/" ? "bg-primary text-white" : ""
-          }`}
+          className={clsx("p-2 rounded-md", {
+            "bg-primary text-white": pathname === "/overview",
+          })}
         >
           <IconTableColumn
-            className={`inline-block mr-2 ${
-              pathname === "/" ? "text-white" : "text-primary"
-            }`}
+            className={clsx("inline-block mr-2", {
+              "text-white": pathname === "/overview",
+              "text-primary": pathname !== "/overview",
+            })}
           />
           <Link
             href="/overview"
-            className={`${pathname === "/" ? "text-white" : "text-primary"}`}
+            className={clsx({
+              "text-white": pathname === "/overview",
+              "text-primary": pathname !== "/overview",
+            })}
           >
             Overview
           </Link>
         </li>
         <li
-          className={`p-2 rounded-md ${
-            pathname === "/calendar" ? "bg-primary text-white" : ""
-          }`}
+          className={clsx("p-2 rounded-md", {
+            "bg-primary text-white": pathname === "/calendar",
+          })}
         >
           <IconCalendarMonth
-            className={`inline-block mr-2 ${
-              pathname === "/calendar" ? "text-white" : "text-primary"
-            }`}
+            className={clsx("inline-block mr-2", {
+              "text-white": pathname === "/calendar",
+              "text-primary": pathname !== "/calendar",
+            })}
           />
           <Link
             href="/calendar"
-            className={`${
-              pathname === "/calendar" ? "text-white" : "text-primary"
-            }`}
+            className={clsx({
+              "text-white": pathname === "/calendar",
+              "text-primary": pathname !== "/calendar",
+            })}
           >
             Calendar
           </Link>
         </li>
         <li
-          className={`p-2 rounded-md ${
-            pathname === "/settings" ? "bg-primary text-white" : ""
-          }`}
+          className={clsx("p-2 rounded-md", {
+            "bg-primary text-white": pathname === "/settings",
+          })}
         >
           <IconSettings
-            className={`inline-block mr-2 ${
-              pathname === "/settings" ? "text-white" : "text-primary"
-            }`}
+            className={clsx("inline-block mr-2", {
+              "text-white": pathname === "/settings",
+              "text-primary": pathname !== "/settings",
+            })}
           />
           <Link
             href="/settings"
-            className={`${
-              pathname === "/settings" ? "text-white" : "text-primary"
-            }`}
+            className={clsx({
+              "text-white": pathname === "/settings",
+              "text-primary": pathname !== "/settings",
+            })}
           >
             Settings
           </Link>
