@@ -2,9 +2,7 @@ import React from "react";
 export default function Header() {
   return (
     <>
-      <div>
-        hello
-      </div>
+      <div>hello</div>
     </>
   );
 }

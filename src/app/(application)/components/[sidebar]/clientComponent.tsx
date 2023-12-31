@@ -16,8 +16,8 @@ const ClientComponent: React.FC = () => {
     <aside className="w-64 bg-slate-100 p-4 text-white min-h-screen">
       <h2 className="text-2xl text-primary font-semibold mb-4">
         {" "}
-        <Link href={'/'}>
-        <IconProgress className="inline-block mr-2" /> Datewise
+        <Link href={"/"}>
+          <IconProgress className="inline-block mr-2" /> Datewise
         </Link>
       </h2>
       <ul className="space-y-4">
