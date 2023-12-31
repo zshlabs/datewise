@@ -18,7 +18,7 @@ export default function Home() {
         </Link>
       ) : (
         <Link
-          href="/auth/login"
+          href="/auth/register"
           className="bg-primary text-secondary py-5 px-8 my-24 font-bold border-md rounded-xl"
         >
           {" "}
