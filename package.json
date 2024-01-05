@@ -9,7 +9,7 @@
     "lint": "next lint",
     "format": "prettier --check --ignore-path .gitignore .",
     "format:fix": "prettier --write --ignore-path .gitignore .",
-    "postinstall": "prisma db push && prisma generate"
+    "postinstall": "prisma generate"
   },
   "dependencies": {
     "@clerk/nextjs": "^4.29.1",
