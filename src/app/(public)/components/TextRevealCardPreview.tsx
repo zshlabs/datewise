@@ -11,7 +11,7 @@ export function TextRevealCardPreview() {
       <TextRevealCard
         text="We are Live!"
         revealText="On Product Hunt"
-        className="self-center"
+        className="text-center"
       >
         <TextRevealCardTitle>
           Amazing Update from{" "}
