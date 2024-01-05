@@ -51,7 +51,7 @@ export default function Input() {
           <IconArrowRight />
         </button>
       </form>
-      <ToastContainer />
+      <ToastContainer position="bottom-right" />
     </>
   );
 }
