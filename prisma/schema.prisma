@@ -23,7 +23,7 @@ model Event {
   id        Int      @id @default(autoincrement())
   name      String
   date      DateTime
-  userId    Int      // Add this line
+  userId    Int      
   user      User     @relation(fields: [userId], references: [id])
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt

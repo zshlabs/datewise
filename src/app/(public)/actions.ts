@@ -28,3 +28,14 @@ export async function joinWaitList(email: string) {
     }
   }
 }
+
+export async function createEvent(name:string,date:string,userId:number){
+  // const event = await db.event.create({
+  //   data:{
+  //     name.
+  //     date,
+  //   }
+  // })
+
+  return null;
+}
