@@ -1,0 +1,30 @@
+"use server";
+
+import { db } from "@/lib/db/client";
+
+export async function joinWaitList(email: string) {
+  const existingUser = await db.user.findUnique({
+    where: {
+      email,
+    },
+  });
+
+  if (existingUser) {
+    return {
+      status: 400,
+      message: "You're already on the waitlist!",
+    };
+  } else {
+    const user = await db.user.create({
+      data: {
+        email,
+      },
+    });
+    if (user) {
+      return {
+        status: 200,
+        message: "You've been added to the waitlist!",
+      };
+    }
+  }
+}
