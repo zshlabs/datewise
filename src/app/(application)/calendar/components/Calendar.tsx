@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
+import CreateEvent from "./CreateEvent";
 
 function MonthNavigator() {
   const [month, setMonth] = useState(new Date().getMonth());
@@ -40,11 +41,10 @@ function MonthNavigator() {
   };
   const buttonStyle =
     "bg-white border-slate-200 border-2 rounded-full text-primary hover:border-primary hover:text-white px-3 py-1";
-
   return (
     <>
       <div className="text-primary text-xl">{year}</div>
-      <div className="mt-5 flex items-center  space-x-4">
+      <div className=" flex items-center mt-5 space-x-4">
         <Button onClick={decrementMonth} className={buttonStyle}>
           {"<"}
         </Button>
@@ -96,10 +96,15 @@ const CalendarGrid = () => {
 export default function Calendar() {
   return (
     <>
-      <div>
-        <MonthNavigator />
-        <CalendarGrid />
+      <div className="flex justify-between items-center">
+        <div className="">
+          <MonthNavigator />
+        </div>
+        <div className="mt-5">
+          <CreateEvent />
+        </div>
       </div>
+      <CalendarGrid />
     </>
   );
 }
