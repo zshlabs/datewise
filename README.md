@@ -11,11 +11,11 @@
 
 ## About this project
 
-Datewise is best calendar you can find the best design and best workflows , integrations and many more.
+Datewise is the best calendar where you can find the best design and best workflows, integrations, and many more.
 
 This project was inspired by this tweet [https://twitter.com/theanuragdev/status/1740689256115507480](https://twitter.com/theanuragdev/status/1740689256115507480)
 
-Datewise aims to be open first and privacy first calendar , that can be self hosted and can be used by anyone.
+Datewise aims to be open first and privacy-first calendar, that can be self-hosted and can be used by anyone.
 t
 Join us in our journey to build the best calendar.
 
@@ -32,7 +32,7 @@ Join us in our journey to build the best calendar.
 
 ## Contact us
 
-Contact us if you are interested in our Enterprise plan for large organizations that need extra flexibility and control.
+Please feel free to contact us if you are interested in our Enterprise plan for large organizations that need extra flexibility and control.
 
 <a href="https://app.cal.com/anuragtsx/datewise-pricing?utm_source=banner"><img alt="Book us with Cal.com" src="https://cal.com/book-with-cal-dark.svg" /></a>
 
@@ -64,7 +64,7 @@ To run Datewise locally, you will need
 
 ### Manual Setup
 
-> :bulb: **Tip:** Use [pnpm](https://pnpm.io/) to fast installation and efficient disk management.
+> :bulb: **Tip:** Use [pnpm](https://pnpm.io/) for fast installation and efficient disk management.
 
 Follow these steps to setup Datewise on your local machine:
 
