@@ -5,10 +5,10 @@ import * as z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { createEvent } from "@/app/(public)/actions";
-import { useAuth } from "@clerk/nextjs";
+import { currentUser } from "@clerk/nextjs";
 
 import { Button } from "@/components/ui/button";
-
+import { Input } from "@/components/ui/input";
 import {
   Form,
   FormControl,
@@ -18,8 +18,6 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
-
 import {
   AlertDialog,
   AlertDialogContent,
@@ -38,8 +36,6 @@ const formSchema = z.object({
 });
 
 export default function CreateEvent() {
-  const { userId } = useAuth();
-
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
