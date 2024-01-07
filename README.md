@@ -1,6 +1,6 @@
 ![](./public/banner.png)
 
-<div style="text-align:center;">A better Google Calendar
+<div style="text-align:center;" align="center">A better Google Calendar
 <br>
     <a href="https://datewise.zshlabs.tech"><strong>Learn more »</strong></a>
     <br>
