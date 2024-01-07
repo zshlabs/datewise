@@ -64,7 +64,9 @@ To run Datewise locally, you will need
 
 ### Manual Setup
 
-Follow these steps to setup Documenso on your local machine:
+> :bulb: **Tip:** Use [pnpm](https://pnpm.io/) to fast installation and efficient disk management.
+
+Follow these steps to setup Datewise on your local machine:
 
 1. [Fork this repository](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks) to your GitHub account.
 
