@@ -5,7 +5,7 @@ import * as z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { createEvent } from "@/app/(public)/actions";
-import { currentUser } from "@clerk/nextjs";
+// import { currentUser } from "@clerk/nextjs";                  // this is fcking server side.
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
