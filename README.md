@@ -16,7 +16,6 @@ Datewise is the best calendar where you can find the best design and best workfl
 This project was inspired by this tweet [https://twitter.com/theanuragdev/status/1740689256115507480](https://twitter.com/theanuragdev/status/1740689256115507480)
 
 Datewise aims to be open first and privacy-first calendar, that can be self-hosted and can be used by anyone.
-t
 Join us in our journey to build the best calendar.
 
 <div style="text-align:center;"> -
