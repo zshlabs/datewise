@@ -64,7 +64,8 @@ To run Datewise locally, you will need
 
 ### Manual Setup
 
-> :bulb: **Tip:** Use [pnpm](https://pnpm.io/) for fast installation and efficient disk management.
+> [!TIP]
+> Use [pnpm](https://pnpm.io/) for fast installation and efficient disk management.
 
 Follow these steps to setup Datewise on your local machine:
 
