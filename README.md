@@ -87,7 +87,7 @@ git clone https://github.com/<your-username>/datewise
    - NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY
    - CLERK_SECRET_KEY
    
-5. Create the database schema by running `npm run prisma:migrate-dev`
+5. Create the database schema by running `npm run prisma generate`
 
 6. Run `npm run dev` in the root directory to start
 
