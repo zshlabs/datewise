@@ -48,7 +48,7 @@ export default function Component() {
         <div className="space-y-2">
           <Card className="bg-orange-200">
             <CardHeader>
-              <CardTitle> Carsl's birthday</CardTitle>
+              <CardTitle> Carsls birthday</CardTitle>
               <CardDescription>All day</CardDescription>
             </CardHeader>
           </Card>
