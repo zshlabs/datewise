@@ -41,7 +41,7 @@ Please feel free to contact us if you are interested in our Enterprise plan for 
 - [Typescript](https://www.typescriptlang.org/) - Language
 - [Next.js](https://nextjs.org/) - Framework
 - [Supabase](https://supabase.com/) - Database
-- [Prisma](https://www.prisma.io/) - ORM
+- [Prisma](https://www.prisma.io/) - ORM & Connection Pooling
 - [Tailwind](https://tailwindcss.com/) - CSS
 - [shadcn/ui](https://ui.shadcn.com/) - Component Library
 - [Clerk](https://clerk.com/) - Authentication

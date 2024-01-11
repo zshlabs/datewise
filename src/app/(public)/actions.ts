@@ -7,6 +7,7 @@ export async function joinWaitList(email: string) {
     where: {
       email,
     },
+    cacheStrategy: { ttl: 60 },
   });
 
   if (existingUser) {

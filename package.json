@@ -9,12 +9,13 @@
     "lint": "next lint",
     "format": "prettier --check --ignore-path .gitignore .",
     "format:fix": "prettier --write --ignore-path .gitignore .",
-    "postinstall": "prisma generate"
+    "postinstall":"prisma generate --no-engine"
   },
   "dependencies": {
     "@clerk/nextjs": "^4.29.1",
     "@hookform/resolvers": "^3.3.4",
-    "@prisma/client": "5.7.1",
+    "@prisma/client": "5.8.0",
+    "@prisma/extension-accelerate": "^0.6.2",
     "@radix-ui/react-alert-dialog": "^1.0.5",
     "@radix-ui/react-label": "^2.0.2",
     "@radix-ui/react-select": "^2.0.0",
