@@ -24,7 +24,6 @@ Join us in our journey to build the best calendar.
  </a>
  </div>
 
-
 ## Contributing
 
 - To contribute, please see our [contribution guide](https://github.com/zshlabs/datewise/blob/main/CONTRIBUTING.md).
@@ -34,7 +33,6 @@ Join us in our journey to build the best calendar.
 Please feel free to contact us if you are interested in our Enterprise plan for large organizations that need extra flexibility and control.
 
 <a href="https://app.cal.com/anuragtsx/datewise-pricing?utm_source=banner"><img alt="Book us with Cal.com" src="https://cal.com/book-with-cal-dark.svg" /></a>
-
 
 ## Tech Stack
 
@@ -57,7 +55,6 @@ To run Datewise locally, you will need
 
 - Node.js
 - Postgres SQL Database
-
 
 ## Developer Setup
 
@@ -86,14 +83,12 @@ git clone https://github.com/<your-username>/datewise
    - NODE_ENV
    - NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY
    - CLERK_SECRET_KEY
-   
+
 5. Create the database schema by running `npx run prisma generate`
 
 6. Run `npm run dev` in the root directory to start
 
 7. Register a new user at http://localhost:3000/auth/register
-
-
 
 ### Run in Gitpod
 
@@ -105,10 +100,6 @@ git clone https://github.com/<your-username>/datewise
 
 We support DevContainers for VSCode. [Click here to get started.](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/zshlabs/datewise)
 
-
-
 Created by [zsh labs](https://zshlabs.tech) with ❤️
 
 Follow us on [Twitter](https://twitter.com/theanuragdev) for updates. :)
-
-

@@ -1,7 +1,3 @@
-/**
- * v0 by Vercel.
- * @see https://v0.dev/t/D8RpkvjDLtr
- */
 import { Button } from "@/components/ui/button";
 import {
   SelectValue,
@@ -10,12 +6,8 @@ import {
   SelectContent,
   Select,
 } from "@/components/ui/select";
-import {
-  CardTitle,
-  CardDescription,
-  CardHeader,
-  Card,
-} from "@/components/ui/card";
+
+import EventCard from "./components/EventCard";
 
 export default function Component() {
   return (
@@ -46,148 +38,62 @@ export default function Component() {
       </div>
       <div className="grid grid-cols-7 gap-4 mt-4">
         <div className="space-y-2">
-          <Card className="bg-orange-200">
-            <CardHeader>
-              <CardTitle> Carsls birthday</CardTitle>
-              <CardDescription>All day</CardDescription>
-            </CardHeader>
-          </Card>
-          <Card className="bg-orange-200">
-            <CardHeader>
-              <CardTitle>The walking dead</CardTitle>
-              <CardDescription>9 AM - 10 AM</CardDescription>
-            </CardHeader>
-          </Card>
-          <Card className="bg-orange-200">
-            <CardHeader>
-              <CardTitle>Reporting</CardTitle>
-              <CardDescription>11 AM - 11:20 AM</CardDescription>
-            </CardHeader>
-          </Card>
-          <Card className="bg-pink-200">
-            <CardHeader>
-              <CardTitle>Lunch break</CardTitle>
-              <CardDescription>11:20 AM - 12 PM</CardDescription>
-            </CardHeader>
-          </Card>
-          <Card className="bg-orange-200">
-            <CardHeader>
-              <CardTitle>Deep work</CardTitle>
-              <CardDescription>1 PM - 2 PM</CardDescription>
-            </CardHeader>
-          </Card>
+          <EventCard title="Carsls birthday" description="All day" />
+          <EventCard title="Carsls birthday" description="9 AM - 10 AM" />
+
+          <EventCard title="Meeting with team" description="10 AM - 11 AM" />
+          <EventCard title="Lunch break" description="1 PM - 2 PM" />
+          <EventCard title="Project discussion" description="3 PM - 4 PM" />
+          <EventCard title="End of day wrap-up" description="5 PM - 6 PM" />
         </div>
         <div className="space-y-2">
-          <Card className="bg-yellow-200">
-            <CardHeader>
-              <CardTitle>Sales meeting</CardTitle>
-              <CardDescription>9 AM - 10 AM</CardDescription>
-            </CardHeader>
-          </Card>
-          <Card className="bg-blue-200">
-            <CardHeader>
-              <CardTitle>Initial briefing</CardTitle>
-              <CardDescription>...</CardDescription>
-            </CardHeader>
-          </Card>
-          <Card className="bg-blue-200">
-            <CardHeader>
-              <CardTitle>Brainstorming</CardTitle>
-              <CardDescription>...</CardDescription>
-            </CardHeader>
-          </Card>
-          <Card className="bg-blue-200">
-            <CardHeader>
-              <CardTitle>Reporting</CardTitle>
-              <CardDescription>...</CardDescription>
-            </CardHeader>
-          </Card>
+          <EventCard title="Team Standup" description="7 AM - 8 AM" />
+          <EventCard title="Client Meeting" description="9 AM - 10 AM" />
+          <EventCard title="Project Review" description="11 AM - 12 PM" />
+          <EventCard title="Lunch Break" description="1 PM - 2 PM" />
+          <EventCard title="Design Discussion" description="3 PM - 4 PM" />
+          <EventCard title="End of Day Wrap-up" description="5 PM - 6 PM" />
         </div>
         <div className="space-y-2">
-          <Card className="bg-green-200">
-            <CardHeader>
-              <CardTitle>Job interview</CardTitle>
-              <CardDescription>All day</CardDescription>
-            </CardHeader>
-          </Card>
+          <EventCard title="Team Standup" description="7 AM - 8 AM" />
+          <EventCard title="Client Meeting" description="9 AM - 10 AM" />
+          <EventCard title="Project Review" description="11 AM - 12 PM" />
+          <EventCard title="Lunch Break" description="1 PM - 2 PM" />
+          <EventCard title="Design Discussion" description="3 PM - 4 PM" />
+          <EventCard title="End of Day Wrap-up" description="5 PM - 6 PM" />
         </div>
         <div className="space-y-2">
-          <Card className="bg-gray-200">
-            <CardHeader>
-              <CardTitle>Reuni ngarit</CardTitle>
-              <CardDescription>9 AM - 10 AM</CardDescription>
-            </CardHeader>
-          </Card>
-          <Card className="bg-green-200">
-            <CardHeader>
-              <CardTitle>Weekly review</CardTitle>
-              <CardDescription>11 AM - 12 PM</CardDescription>
-            </CardHeader>
-          </Card>
-          <Card className="bg-green-200">
-            <CardHeader>
-              <CardTitle>Sales call</CardTitle>
-              <CardDescription>12 PM - 12:30 PM</CardDescription>
-            </CardHeader>
-          </Card>
-          <Card className="bg-green-200">
-            <CardHeader>
-              <CardTitle>Internal meeting</CardTitle>
-              <CardDescription>12:30 PM - 1 PM</CardDescription>
-            </CardHeader>
-          </Card>
-          <Card className="bg-green-200">
-            <CardHeader>
-              <CardTitle>Feedback session</CardTitle>
-              <CardDescription>...</CardDescription>
-            </CardHeader>
-          </Card>
-          <Card className="bg-green-200">
-            <CardHeader>
-              <CardTitle>Working</CardTitle>
-              <CardDescription>...</CardDescription>
-            </CardHeader>
-          </Card>
-          <Card className="bg-green-200">
-            <CardHeader>
-              <CardTitle>Reporting</CardTitle>
-              <CardDescription>...</CardDescription>
-            </CardHeader>
-          </Card>
+          <EventCard title="Team Standup" description="7 AM - 8 AM" />
+          <EventCard title="Client Meeting" description="9 AM - 10 AM" />
+          <EventCard title="Project Review" description="11 AM - 12 PM" />
+          <EventCard title="Lunch Break" description="1 PM - 2 PM" />
+          <EventCard title="Design Discussion" description="3 PM - 4 PM" />
+          <EventCard title="End of Day Wrap-up" description="5 PM - 6 PM" />
         </div>
         <div className="space-y-2">
-          <Card className="bg-pink-200">
-            <CardHeader>
-              <CardTitle>Travel to Pati</CardTitle>
-              <CardDescription>All day</CardDescription>
-            </CardHeader>
-          </Card>
-          <Card className="bg-orange-200">
-            <CardHeader>
-              <CardTitle>Arabic class</CardTitle>
-              <CardDescription>10 AM - 11 AM</CardDescription>
-            </CardHeader>
-          </Card>
-          <Card className="bg-orange-200">
-            <CardHeader>
-              <CardTitle>Jummah prayer</CardTitle>
-              <CardDescription>12 PM - 1 PM</CardDescription>
-            </CardHeader>
-          </Card>
+          <EventCard title="Team Standup" description="7 AM - 8 AM" />
+          <EventCard title="Client Meeting" description="9 AM - 10 AM" />
+          <EventCard title="Project Review" description="11 AM - 12 PM" />
+          <EventCard title="Lunch Break" description="1 PM - 2 PM" />
+          <EventCard title="Design Discussion" description="3 PM - 4 PM" />
+          <EventCard title="End of Day Wrap-up" description="5 PM - 6 PM" />
         </div>
         <div className="space-y-2">
-          <Card className="bg-gray-200">
-            <CardHeader>
-              <CardTitle>Negleyur</CardTitle>
-              <CardDescription>11 AM - 12 PM</CardDescription>
-            </CardHeader>
-          </Card>
-          <Card className="bg-orange-200">
-            <CardHeader>
-              <CardTitle>Mieck dilut</CardTitle>
-              <CardDescription>9 AM - 10 AM</CardDescription>
-            </CardHeader>
-          </Card>
+          <EventCard title="Team Standup" description="7 AM - 8 AM" />
+          <EventCard title="Client Meeting" description="9 AM - 10 AM" />
+          <EventCard title="Project Review" description="11 AM - 12 PM" />
+          <EventCard title="Lunch Break" description="1 PM - 2 PM" />
+          <EventCard title="Design Discussion" description="3 PM - 4 PM" />
+          <EventCard title="End of Day Wrap-up" description="5 PM - 6 PM" />
+        </div>
+        <div className="space-y-2">
+          <EventCard title="Running" description="6 AM - 7 AM" />
+          <EventCard title="Team Standup" description="7 AM - 8 AM" />
+          <EventCard title="Client Meeting" description="9 AM - 10 AM" />
+          <EventCard title="Project Review" description="11 AM - 12 PM" />
+          <EventCard title="Lunch Break" description="1 PM - 2 PM" />
+          <EventCard title="Design Discussion" description="3 PM - 4 PM" />
+          <EventCard title="End of Day Wrap-up" description="5 PM - 6 PM" />
         </div>
       </div>
     </div>
