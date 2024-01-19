@@ -53,9 +53,8 @@ export default function CreateEvent() {
   return (
     <AlertDialog>
       <AlertDialogTrigger asChild>
-        <Button variant="outline">
-          {" "}
-          <IconPlus /> Create Event
+        <Button variant="primary">
+          <IconPlus size={15} stroke={3} className="mr-1" /> Add Event
         </Button>
       </AlertDialogTrigger>
       <AlertDialogContent>
