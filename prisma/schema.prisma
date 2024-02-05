@@ -20,11 +20,22 @@ model User {
 }
 
 model Event {
-  id        Int      @id @default(autoincrement())
-  name      String
-  date      DateTime
-  userId    Int      
-  user      User     @relation(fields: [userId], references: [id])
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  id        Int        @id @default(autoincrement())
+  title     String
+  start     DateTime
+  end       DateTime
+  location  String
+  userId    Int
+  user      User       @relation(fields: [userId], references: [id])
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+  Reminder  Reminder[]
+}
+
+model Reminder {
+  id      Int      @id @default(autoincrement())
+  message String
+  time    DateTime
+  eventId Int
+  event   Event    @relation(fields: [eventId], references: [id])
 }

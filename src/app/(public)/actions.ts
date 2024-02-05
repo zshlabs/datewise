@@ -29,21 +29,21 @@ export async function joinWaitList(email: string) {
   }
 }
 
-export async function createEvent(name: string, date: Date, userId: number) {
-  const event = await db.event.create({
-    data: {
-      name,
-      date,
-      user: {
-        connect: {
-          id: userId,
-        },
-      },
-    },
-  });
+// export async function createEvent(name: string, date: Date, userId: number) {
+//   const event = await db.event.create({
+//     data: {
+//       name,
+//       date,
+//       user: {
+//         connect: {
+//           id: userId,
+//         },
+//       },
+//     },
+//   });
 
-  return {
-    status: 200,
-    event,
-  };
-}
+//   return {
+//     status: 200,
+//     event,
+//   };
+// }
