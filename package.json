@@ -30,7 +30,8 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.49.3",
-    "react-toastify": "^9.1.3"
+    "react-toastify": "^9.1.3",
+    "tailwindcss-patterns": "^0.1.2"
   },
   "devDependencies": {
     "@t3-oss/env-nextjs": "0.7.1",
