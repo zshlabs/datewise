@@ -1,62 +1,9 @@
 "use client";
-import React, { useState } from "react";
-import { Button } from "@/components/ui/button";
-import CreateEvent from "./CreateEvent";
-
-function MonthNavigator() {
-  const [month, setMonth] = useState(new Date().getMonth());
-  const [year, setYear] = useState(new Date().getFullYear());
-
-  const monthNames = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December",
-  ];
-
-  const decrementMonth = () => {
-    if (month === 0) {
-      setMonth(11);
-      setYear(year - 1);
-    } else {
-      setMonth(month - 1);
-    }
-  };
-
-  const incrementMonth = () => {
-    if (month === 11) {
-      setMonth(0);
-      setYear(year + 1);
-    } else {
-      setMonth(month + 1);
-    }
-  };
-  const buttonStyle =
-    "bg-white border-slate-200 border-2 rounded-full text-primary hover:border-primary hover:text-white px-3 py-1";
-  return (
-    <>
-      <div className="text-primary text-xl">{year}</div>
-      <div className=" flex items-center mt-5 space-x-4">
-        <Button onClick={decrementMonth} className={buttonStyle}>
-          {"<"}
-        </Button>
-        <span className="text-xl ml-0 ">{`${monthNames[month]} ,`}</span>
-        <span className="text-xl ml-0 text-slate-400">{`${year}`}</span>
-        <Button onClick={incrementMonth} className={buttonStyle}>
-          {">"}
-        </Button>
-      </div>
-    </>
-  );
-}
+import React from "react";
+import CalendarHeader from "./CalendarHeader";
+import EventCard from "./EventCard";
+import DayActiveCursor from "./DayActiveCursor";
+import TimeActiveCursor from "./TimeActiveCursor";
 
 const days = [
   "Sunday",
@@ -67,25 +14,78 @@ const days = [
   "Friday",
   "Saturday",
 ];
-const hours = Array.from({ length: 24 }, (_, i) => i);
+
+const hours = Array.from({ length: 24 }, (_, i) => i + 1);
 
 const CalendarGrid = () => {
   return (
-    <div className="grid grid-cols-8 gap-4 p-4">
+    <div className="grid grid-cols-8 overflow-hidden">
+      {/* Hours column */}
       <div className="col-span-1">
+        <div className="border-b border-r border-gray-100 flex items-center justify-center h-[60px] font-semibold text-sm">
+          PST
+        </div>
+        <div className="border-b border-r border-gray-100 flex items-center justify-center h-[150px]">
+          All day
+        </div>
         {hours.map((hour) => (
           <div
             key={hour}
-            className="h-12 border-b border-gray-200 flex items-center justify-center"
+            className="border-r border-gray-100 flex items-start justify-center h-[150px] p-2 relative"
           >
-            {hour}:00
+            <div className="absolute flex items-center w-[100%] justify-center">
+              {hour > 12 ? hour - 12 : hour} {hour > 12 ? "PM" : "AM"}
+              <div className="absolute h-[10px] left-[80%] top-[50%] translate-y-[-50%] border-l-2 border-gray-200 flex items-center">
+                <div className="h-[2px] w-[100vw] bg-gray-200"></div>
+              </div>
+            </div>
+            {/* Active cursor for current time */}
+            {hour == 2 && (
+              <div className="absolute flex items-center w-[100%] justify-center top-[50px] text-blue-500">
+                2:45 AM
+                <TimeActiveCursor />
+              </div>
+            )}
           </div>
         ))}
       </div>
+
+      {/* Week days column */}
       {days.map((day) => (
-        <div key={day} className="col-span-1">
-          {hours.map((hour) => (
-            <div key={hour} className="h-12 border-b border-gray-200"></div>
+        <div
+          key={day}
+          className={`col-span-1 ${day == "Thursday" && "bg-blue-50"} ${(day == "Saturday" || day == "Sunday") && "bg-gray-100/20 pattern-lines-diagonal-right-gray-100/80 pattern-lines-diagonal-right-scale-[4]"}`}
+        >
+          {/* Day heading */}
+          <div
+            className={`bg-white border-b border-r border-gray-100 flex items-center justify-center h-[60px] font-semibold  ${day == "Thursday" && "border-b-4 border-b-blue-500"} text-sm`}
+          >
+            {day.slice(0, 3).toUpperCase()}
+          </div>
+
+          {/* All day row */}
+          <div
+            key={0}
+            className="border-b border-r border-gray-100 h-[150px] p-2"
+          >
+            {/* Events */}
+            {day == "Thursday" && <EventCard variant="green" />}
+            {day == "Tuesday" && <EventCard variant="red" />}
+            {day == "Monday" && <EventCard variant="yellow" />}
+            {day == "Wednesday" && <EventCard variant="orange" />}
+            {day == "Friday" && <EventCard variant="gray" />}
+            {day == "Sunday" && <EventCard variant="blue" />}
+          </div>
+
+          {/* Hour rows */}
+          {hours.map((hour, i) => (
+            <div
+              key={hour}
+              className="border-r border-gray-100 h-[150px] relative p-2"
+            >
+              {/* Active cursor for current time and day */}
+              {i == 1 && day == "Thursday" && <DayActiveCursor />}
+            </div>
           ))}
         </div>
       ))}
@@ -96,14 +96,7 @@ const CalendarGrid = () => {
 export default function Calendar() {
   return (
     <>
-      <div className="flex justify-between items-center">
-        <div className="">
-          <MonthNavigator />
-        </div>
-        <div className="mt-5">
-          <CreateEvent />
-        </div>
-      </div>
+      <CalendarHeader />
       <CalendarGrid />
     </>
   );
