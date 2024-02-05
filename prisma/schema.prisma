@@ -11,7 +11,7 @@ datasource db {
 }
 
 model User {
-  id        Int      @id @default(autoincrement())
+  id        String   @id @default(uuid())
   email     String   @unique
   name      String?
   events    Event[]
@@ -20,12 +20,12 @@ model User {
 }
 
 model Event {
-  id        Int        @id @default(autoincrement())
+  id        String   @id @default(uuid())
   title     String
   start     DateTime
   end       DateTime
   location  String?
-  userId    Int
+  userId    String
   user      User       @relation(fields: [userId], references: [id])
   createdAt DateTime   @default(now())
   updatedAt DateTime   @updatedAt
@@ -33,9 +33,9 @@ model Event {
 }
 
 model Reminder {
-  id      Int      @id @default(autoincrement())
+  id        String   @id @default(uuid())
   message String
   time    DateTime
-  eventId Int
+  eventId String
   event   Event    @relation(fields: [eventId], references: [id])
 }
