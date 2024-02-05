@@ -24,7 +24,7 @@ model Event {
   title     String
   start     DateTime
   end       DateTime
-  location  String
+  location  String?
   userId    Int
   user      User       @relation(fields: [userId], references: [id])
   createdAt DateTime   @default(now())
