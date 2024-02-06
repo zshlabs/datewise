@@ -20,10 +20,10 @@ model User {
 }
 
 model Event {
-  id        String   @id @default(uuid())
+  id        String     @id @default(uuid())
   title     String
-  start     DateTime
-  end       DateTime
+  start String
+  end String
   location  String?
   userId    String
   user      User       @relation(fields: [userId], references: [id])
@@ -33,7 +33,7 @@ model Event {
 }
 
 model Reminder {
-  id        String   @id @default(uuid())
+  id      String   @id @default(uuid())
   message String
   time    DateTime
   eventId String

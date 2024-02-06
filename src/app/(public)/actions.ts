@@ -33,28 +33,36 @@ export async function joinWaitList(email: string) {
 
 // Events actions
 
-export async function createEvent(title: string, start: Date, end: Date, userId: number, location?: string) {
-  const event = await db.event.create({
-    data: {
-      title,
-      start,
-      end,
-      location,
-      user: {
-        connect: {
-          id: userId,
-        },
+export async function createEvent(title: string, startDate: string,endDate: string, userId:string,  startTime:string,endTime:string, location?: string ) {
+  // console.log(`Start Date: ${startDate}T${startTime}`);
+  // console.log(`End Date: ${endDate}T${endTime}`);
+  try {
+    const start = new Date(`${startDate}T${startTime}`).toISOString();
+    const end = new Date(`${endDate}T${endTime}`).toISOString();
+    // userId is hardcoded
+    const event = await db.event.create({
+      data: {
+        title,
+        start,
+        end,
+        location,
+        userId,
       },
-    },
-  });
-
-  return {
-    status: 200,
-    event,
-  };
+    });
+    // console.log(event)
+    return {
+      status: 200,
+      event,
+    };
+  } catch (error) {
+    return {
+      status:500,
+      message: `Error: ${error} `
+    }
+  }
 }
 
-export async function getEvents(userId: number) {
+export async function getEvents(userId: string) {
   const events = await db.event.findMany({
     where: {
       userId,
@@ -69,7 +77,7 @@ export async function getEvents(userId: number) {
 
 // Remainder actions
  
-export async function createReminder(message: string, time: Date, eventId: number) {
+export async function createReminder(message: string, time: Date, eventId: string) {
   const reminder = await db.reminder.create({
     data: {
       message,
@@ -88,7 +96,7 @@ export async function createReminder(message: string, time: Date, eventId: numbe
   };
 }
 
-export async function getReminders(eventId: number) {
+export async function getReminders(eventId: string) {
   const reminders = await db.reminder.findMany({
     where: {
       eventId,
