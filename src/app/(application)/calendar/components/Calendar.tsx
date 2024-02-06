@@ -69,12 +69,9 @@ const CalendarGrid = () => {
             className="border-b border-r border-gray-100 h-[150px] p-2"
           >
             {/* Events */}
-            {day == "Thursday" && <EventCard variant="green" />}
-            {day == "Tuesday" && <EventCard variant="red" />}
-            {day == "Monday" && <EventCard variant="yellow" />}
-            {day == "Wednesday" && <EventCard variant="orange" />}
-            {day == "Friday" && <EventCard variant="gray" />}
-            {day == "Sunday" && <EventCard variant="blue" />}
+            {day == "Thursday" && (
+              <EventCard variant="red" title="Carl's birthday" time="all-day" />
+            )}
           </div>
 
           {/* Hour rows */}
