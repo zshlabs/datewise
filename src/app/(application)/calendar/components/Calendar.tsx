@@ -4,6 +4,7 @@ import CalendarHeader from "./CalendarHeader";
 import EventCard from "./EventCard";
 import DayActiveCursor from "./DayActiveCursor";
 import TimeActiveCursor from "./TimeActiveCursor";
+import { Event } from "@prisma/client";
 import HourCursor from "./HourCursor";
 
 const days = [
@@ -18,7 +19,11 @@ const days = [
 
 const hours = Array.from({ length: 24 }, (_, i) => i + 1);
 
-const CalendarGrid = () => {
+interface Props {
+  events: Event[];
+}
+
+const CalendarGrid = ({ events }: Props) => {
   const now = new Date();
 
   return (
@@ -72,7 +77,30 @@ const CalendarGrid = () => {
             <div
               key={hour}
               className="border-r border-gray-100 h-[150px] relative p-2"
+              style={{ marginTop: i == 0 ? "20px" : "0" }}
             >
+              {events.map((event) => (
+                <div
+                  key={event.id}
+                  className="absolute h-full w-full"
+                  style={{
+                    width: "calc(100% - 15px)",
+                    top: `${Math.round((new Date(event.start).getMinutes() / 60) * 100)}%`,
+                  }}
+                >
+                  {days[new Date(event.start).getDay()] == day &&
+                    hour == new Date(event.start).getHours() && (
+                      <EventCard
+                        variant="red"
+                        title={event.title}
+                        time={{
+                          from: new Date(event.start),
+                          to: new Date(event.end),
+                        }}
+                      />
+                    )}
+                </div>
+              ))}
               {/* Active cursor for current time and day */}
               {hour == now.getHours() && day == days[now.getDay()] && (
                 <DayActiveCursor minutes={now.getMinutes()} />
@@ -85,11 +113,11 @@ const CalendarGrid = () => {
   );
 };
 
-export default function Calendar() {
+export default function Calendar({ events }: Props) {
   return (
     <>
       <CalendarHeader />
-      <CalendarGrid />
+      <CalendarGrid events={events} />
     </>
   );
 }
