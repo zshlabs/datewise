@@ -9,7 +9,7 @@ function DayActiveCursor({ minutes }: Props) {
     <div
       className={`h-[23px] w-[100%] left-0 border-x-2 border-blue-600 absolute flex items-center`}
       style={{
-        top: `${Math.round((minutes / 60) * 100)}%`,
+        top: `calc(${Math.round((minutes / 60) * 100)}% - 20px)`,
       }}
     >
       <div className="h-[3px] w-[100%] bg-blue-600"></div>
