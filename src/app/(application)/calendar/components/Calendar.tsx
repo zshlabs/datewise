@@ -4,6 +4,8 @@ import CalendarHeader from "./CalendarHeader";
 import EventCard from "./EventCard";
 import DayActiveCursor from "./DayActiveCursor";
 import TimeActiveCursor from "./TimeActiveCursor";
+import { Event } from "@prisma/client";
+import HourCursor from "./HourCursor";
 
 const days = [
   "Sunday",
@@ -17,7 +19,13 @@ const days = [
 
 const hours = Array.from({ length: 24 }, (_, i) => i + 1);
 
-const CalendarGrid = () => {
+interface Props {
+  events: Event[];
+}
+
+const CalendarGrid = ({ events }: Props) => {
+  const now = new Date();
+
   return (
     <div className="grid grid-cols-8 overflow-hidden">
       {/* Hours column */}
@@ -33,19 +41,9 @@ const CalendarGrid = () => {
             key={hour}
             className="border-r border-gray-100 flex items-start justify-center h-[150px] p-2 relative"
           >
-            <div className="absolute flex items-center w-[100%] justify-center">
-              {hour > 12 ? hour - 12 : hour} {hour > 12 ? "PM" : "AM"}
-              <div className="absolute h-[10px] left-[80%] top-[50%] translate-y-[-50%] border-l-2 border-gray-200 flex items-center">
-                <div className="h-[2px] w-[100vw] bg-gray-200"></div>
-              </div>
-            </div>
+            <HourCursor hour={hour} />
             {/* Active cursor for current time */}
-            {hour == 2 && (
-              <div className="absolute flex items-center w-[100%] justify-center top-[50px] text-blue-500">
-                2:45 AM
-                <TimeActiveCursor />
-              </div>
-            )}
+            {hour == now.getHours() && <TimeActiveCursor now={now} />}
           </div>
         ))}
       </div>
@@ -79,9 +77,34 @@ const CalendarGrid = () => {
             <div
               key={hour}
               className="border-r border-gray-100 h-[150px] relative p-2"
+              style={{ marginTop: i == 0 ? "20px" : "0" }}
             >
+              {events.map((event) => (
+                <div
+                  key={event.id}
+                  className="absolute h-full w-full"
+                  style={{
+                    width: "calc(100% - 15px)",
+                    top: `${Math.round((new Date(event.start).getMinutes() / 60) * 100)}%`,
+                  }}
+                >
+                  {days[new Date(event.start).getDay()] == day &&
+                    hour == new Date(event.start).getHours() && (
+                      <EventCard
+                        variant="red"
+                        title={event.title}
+                        time={{
+                          from: new Date(event.start),
+                          to: new Date(event.end),
+                        }}
+                      />
+                    )}
+                </div>
+              ))}
               {/* Active cursor for current time and day */}
-              {i == 1 && day == "Thursday" && <DayActiveCursor />}
+              {hour == now.getHours() && day == days[now.getDay()] && (
+                <DayActiveCursor minutes={now.getMinutes()} />
+              )}
             </div>
           ))}
         </div>
@@ -90,11 +113,11 @@ const CalendarGrid = () => {
   );
 };
 
-export default function Calendar() {
+export default function Calendar({ events }: Props) {
   return (
     <>
       <CalendarHeader />
-      <CalendarGrid />
+      <CalendarGrid events={events} />
     </>
   );
 }
