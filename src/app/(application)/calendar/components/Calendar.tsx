@@ -84,6 +84,8 @@ const CalendarGrid = ({ events }: Props) => {
                 const localEventStart = new Date(
                   eventStart.getTime() + eventStart.getTimezoneOffset() * 60000
                 );
+                const variants: ("green" | "red" | "gray" | "orange" | "yellow" | "blue")[] = ["green", "red", "gray", "orange", "yellow", "blue"];
+                const randomVariant: "green" | "red" | "gray" | "orange" | "yellow" | "blue" = variants[Math.floor(Math.random() * variants.length)];
 
                 return (
                   <div
@@ -97,8 +99,8 @@ const CalendarGrid = ({ events }: Props) => {
                     {days[localEventStart.getDay()] == day &&
                       hour == localEventStart.getHours() && (
                         <EventCard
-                          variant="red"
-                          title={event.title}
+                        variant={randomVariant}
+                        title={event.title}
                           time={{
                             from: new Date(new Date(event.start).getTime() + new Date(event.start).getTimezoneOffset() * 60000),
                             to: new Date(new Date(event.end).getTime() + new Date(event.end).getTimezoneOffset() * 60000),
