@@ -52,11 +52,11 @@ const CalendarGrid = ({ events }: Props) => {
       {days.map((day) => (
         <div
           key={day}
-          className={`col-span-1 ${day == "Thursday" && "bg-blue-50"} ${(day == "Saturday" || day == "Sunday") && "bg-gray-100/20 pattern-lines-diagonal-right-gray-100/80 pattern-lines-diagonal-right-scale-[4]"}`}
+          className={`col-span-1 ${new Date().getDay() === days.indexOf(day) && "bg-blue-50"} ${(day == "Saturday" || day == "Sunday") && " pattern-lines-diagonal-right-gray-100/80 pattern-lines-diagonal-right-scale-[4]"}`}
         >
           {/* Day heading */}
           <div
-            className={`bg-white border-b border-r border-gray-100 flex items-center justify-center h-[60px] font-semibold  ${day == "Thursday" && "border-b-4 border-b-blue-500"} text-sm`}
+            className={`bg-white border-b border-r border-gray-100 flex items-center justify-center h-[60px] font-semibold  ${new Date().getDay() === days.indexOf(day) && "border-b-4 border-b-blue-500"} text-sm`}
           >
             {day.slice(0, 3).toUpperCase()}
           </div>
@@ -67,9 +67,9 @@ const CalendarGrid = ({ events }: Props) => {
             className="border-b border-r border-gray-100 h-[150px] p-2"
           >
             {/* Events */}
-            {day == "Thursday" && (
+            {/* {day == "Thursday" && (
               <EventCard variant="red" title="Carl's birthday" time="all-day" />
-            )}
+            )} */}
           </div>
 
           {/* Hour rows */}
@@ -79,28 +79,35 @@ const CalendarGrid = ({ events }: Props) => {
               className="border-r border-gray-100 h-[150px] relative p-2"
               style={{ marginTop: i == 0 ? "20px" : "0" }}
             >
-              {events.map((event) => (
-                <div
-                  key={event.id}
-                  className="absolute h-full w-full"
-                  style={{
-                    width: "calc(100% - 15px)",
-                    top: `${Math.round((new Date(event.start).getMinutes() / 60) * 100)}%`,
-                  }}
-                >
-                  {days[new Date(event.start).getDay()] == day &&
-                    hour == new Date(event.start).getHours() && (
-                      <EventCard
-                        variant="red"
-                        title={event.title}
-                        time={{
-                          from: new Date(event.start),
-                          to: new Date(event.end),
-                        }}
-                      />
-                    )}
-                </div>
-              ))}
+              {events.map((event) => {
+                const eventStart = new Date(event.start);
+                const localEventStart = new Date(
+                  eventStart.getTime() + eventStart.getTimezoneOffset() * 60000
+                );
+
+                return (
+                  <div
+                    key={event.id}
+                    className="absolute h-full w-full"
+                    style={{
+                      width: "calc(100% - 15px)",
+                      top: `${Math.round((localEventStart.getMinutes() / 60) * 100)}%`,
+                    }}
+                  >
+                    {days[localEventStart.getDay()] == day &&
+                      hour == localEventStart.getHours() && (
+                        <EventCard
+                          variant="red"
+                          title={event.title}
+                          time={{
+                            from: new Date(new Date(event.start).getTime() + new Date(event.start).getTimezoneOffset() * 60000),
+                            to: new Date(new Date(event.end).getTime() + new Date(event.end).getTimezoneOffset() * 60000),
+                          }}
+                        />
+                      )}
+                  </div>
+                );
+              })}
               {/* Active cursor for current time and day */}
               {hour == now.getHours() && day == days[now.getDay()] && (
                 <DayActiveCursor minutes={now.getMinutes()} />

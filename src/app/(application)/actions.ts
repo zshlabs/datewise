@@ -35,7 +35,7 @@ export async function createEvent(title: string, startDate: string,endDate: stri
   }
   
   export async function getEvents(userId: string) {
-    const events = await db.event.findMany({
+    const events = await db.event.findFirst({
       where: {
         userId,
       },

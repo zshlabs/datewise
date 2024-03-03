@@ -4,13 +4,15 @@ import Calendar from "./components/Calendar";
 import { auth } from "@clerk/nextjs";
 
 export default async function CalendarPage() {
-  const { userId } = auth();
-  if (!userId) return null;
+  // const { userId } = auth();
+  // if (!userId) return null;
+
+  const userId = "10";
   const { events } = await getEvents(userId);
+  console.log("event:" ,events);
 
   return (
     <main>
-      <h1>Calendar page</h1>
       <Calendar events={events} />
     </main>
   );
